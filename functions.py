@@ -1,4 +1,11 @@
+#Function that takes in countyfips and returns zip code following zip_county dataset
+def county_to_zip(countyfips, zip_data):
+    # zip_data is a dataset containing the mapping of county to zip, vise versa. 
+    # ['COUNTY'] is the countyfips and ['3ZIP'] is the zip code
+    zip_county_filtered = zip_data[zip_data['COUNTY'] == countyfips] #Filter zip_county dataset by countyfips
+    return zip_county_filtered['3ZIP'].values[0] #Return the zip code (3-ZIP)
 # Create a reverse mapping from abbreviation to full names
+
 def state_name_to_abbreviation(state_name):
     state_dict_2 = {
     'Alabama': 'AL', 'Alaska': 'AK', 'American Samoa': 'AS', 'Arizona': 'AZ', 
