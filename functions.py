@@ -49,3 +49,19 @@ def state_abbreviation_to_name(abbr):
         if abbreviation == abbr:
             return name
     return None
+
+from pyzipcode import ZipCodeDatabase
+
+zcdb = ZipCodeDatabase()
+
+def get_state_from_zip(zip_code):
+    try:
+        return zcdb[zip_code].state
+    except IndexError:
+        return None
+
+# Testing
+postal_code = "90000"  # Replace with your own postal code
+#print(get_state_from_zip(postal_code))
+
+print(zcdb)
